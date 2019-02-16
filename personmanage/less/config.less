@@ -1,0 +1,66 @@
+// 颜色
+@c-blue: #0094e1;
+@c-red: #f33;
+@c-yellow: #f1aa11;
+@c-orange : #fc9252;
+@c-more-orange: #fd6453;
+@c-small-blue: #dff4ff;
+@c-default: #efeff4;
+@c-green: #42b035;
+@c-purple: #5262e5;
+// 属性
+@bg: background;
+@bgc: background-color;
+@bgi: background-image;
+@bgr: background-repeat;
+@bgp: background-position;
+@bgs: background-size;
+
+@jc: justify-content;
+@fd: flex-direction;
+@ai: align-items;
+
+@fs: font-size;
+@bdra: border-radius;
+
+
+// 常用属性集合
+.word-online() {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+em {
+    font-style: normal;
+}
+img{
+    border:0;
+}
+ol, ul ,li{list-style: none;}
+html {
+    @{fs}: 10 / 3 vw;
+}
+body {
+    @{bgc}: @c-small-blue;
+}
+input {
+    border: 0;
+    padding: 0.4em 0.6em;
+    @{bdra}: 4px;
+}
+button {
+    border: 0;
+    @{bgc}: @c-blue;
+    padding: 6px 16px;
+    @{bdra}: 4px;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+}

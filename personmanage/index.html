@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" href="./img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>人事管理</title>
+    <script type="text/javascript">
+         const tools = {}
+    </script>
+    <!-- 组件部分 -->
+    <script type="text/javascript" src="./js/components/index.js"></script>
+    <script type="text/javascript" src="./js/components/manage.js"></script>
+    <script type="text/javascript" src="./js/components/user.js"></script>
+    <!-- 拓展方法 -->
+    <script type="text/javascript" src="./js/utils.js"></script>
+    <!-- js支持部分 -->
+    <script type="text/javascript" src="./static/vue/vue.min.js"></script>
+    <script type="text/javascript" src="./static/vue/vue-router.min.js"></script>
+    <script type="text/javascript" src="./static/vue/vuex.min.js"></script>
+    <script type="text/javascript" src="./static/vue/vue-resource.min.js"></script>
+    <script type="text/javascript" src="./js/router.js"></script>
+    <script type="text/javascript" src="./js/store.js"></script>
+</head>
+<body>
+<div class="app">
+    <div class="header" v-show='isLogin'>
+        <div class="user-info">
+            <div class="info-content"
+            @click="showList">
+                {{userName}}
+                <ul
+                :class="{'show-item': userList}">
+                    <li>
+                        <a href="javascript:;"
+                        @click="recodeInfo">修改</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"
+                        @click="logout">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <router-view></router-view>
+    </div>
+    <div class="footer" :class="{'footer-login': pcState}">
+        <span>版权所有&ensp;&copy;韫泽</span>
+        <span>Innovation distingutshes between a leader and follower</span>
+    </div>
+</div>
+
+<script type="text/javascript" src="./static/layer/jquery.min.js"></script>
+<script type="text/javascript" src="./static/layer/layer.js"></script>
+<script type="text/javascript">
+    new Vue({
+        data: {
+            isLogin: false,
+            pcState: false,
+            userList: false,
+            userName: "",
+        },
+        created() {
+            var vm = this,
+                path = vm.$route.path
+            vm.viewCtrl(path)
+        },
+        methods: {
+            viewCtrl(path) {
+                var vm = this,
+                    tmd = tools.methods,
+                    info = tmd.getUserInfo()
+                switch (path) {
+                    case "/login":
+                    case "/regest":
+                    case "/recode":
+                        vm.isLogin = false
+                        vm.pcState = true
+                        break
+                    default:
+                        vm.isLogin = true
+                        vm.pcState = false
+                }
+                if (!info) {
+                    switch (path) {
+                        case "/regest":
+                            break
+                        default:
+                            vm.$router.push("/")
+                    }
+                } else {
+                    vm.userName = info.name
+                }
+            },
+            showList() {
+                var vm = this
+                vm.userList = !vm.userList
+            },
+            recodeInfo() {
+                var vm = this
+                vm.$router.push("/recode")
+            },
+            logout() {
+                var tmd = tools.methods,
+                    vm = this,
+                    ly
+                ly = layer.confirm('确定退出登录么', function() {
+                    tmd.setUserInfo()
+                    vm.$router.push("/")
+                    layer.close(ly)
+                })
+            }
+        },
+        watch: {
+            "$route"(route) {
+                var vm = this,
+                    path = route.path
+                vm.viewCtrl(path)
+            }
+        },
+        router,
+        store
+    }).$mount(".app")
+</script>
+</body>
+</html>

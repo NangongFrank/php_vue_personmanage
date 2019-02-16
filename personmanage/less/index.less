@@ -1,0 +1,115 @@
+@import './config.less';
+.app {
+    display: flex;
+    @{fd}: column;
+    @{ai}: center;
+}
+.header,
+.content,
+.footer {
+    width: 1200px;
+}
+.header {
+    height: 162px;
+    @{bg}: url('./../img/header-banner.jpg') 0 0 no-repeat;
+    @{bgs}: 100% 100%;
+    display: flex;
+    @{ai}: flex-end;
+    @{jc}: flex-end;
+    padding: 0 1em 1em 0;
+    .user-info {
+        display: flex;
+        @{ai}: center;
+    }
+    .info-content {
+        position: relative;
+        margin-right: 2em;
+        ul {
+            position: absolute;
+            left: 0;
+            bottom: -3.5em;
+            display: none;
+            li {
+                display: flex;
+                width: 4em;
+                border: 1px solid @c-green;
+                &:not(:last-of-type) {
+                    border-bottom: 0;
+                }
+                padding: 0.2em 0;
+                @{jc}: center;
+                a {
+                    color: @c-orange;
+                }
+            }
+        }
+    }
+}
+.content {
+    min-height: 500px;
+    display: flex;
+    @{jc}: center;
+}
+.footer {
+    display: flex;
+    @{fd}: column;
+    @{ai}: center;
+    padding: 0.4em 0;
+    @{bgc}: @c-default;
+    @{fs}: 0.9em;
+}
+
+.content {
+    .login {
+        width: 513px;
+        height: 500px;
+        @{bg}: url('./../img/bg-login.jpg') 0 0 no-repeat;
+        @{bgs}: 100% 100%;
+        display: flex;
+        @{ai}: flex-end;
+        @{jc}: center;
+        padding-bottom: 1.2rem;
+        div {
+            margin: 16px 0;
+        }
+        form {
+            padding: 0.4em 1em;
+        }
+        .login-btn {
+            display:flex;
+            @{jc}: space-around;
+        }
+    }
+    .manage-home {
+        display: flex;
+        width: 1200px;
+        .home-left {
+            width: 203px;
+            height: 615px;
+            padding: 0.8em 0;
+            @{bg}: url("./../img/checked-banner.jpg") 0 0 no-repeat;
+            @{bgs}: 100% 100%;
+            li {
+                display: flex;
+                height: 3em;
+                padding: 0.4em 1em;
+                a {
+                    flex: 1;
+                    @{bgs}: 100% 100%;
+                    display: flex;
+                    @{ai}: center;
+                    @{jc}: center;
+                }
+            }
+        }
+        .home-right {
+            flex: 1;
+        }
+    }
+}
+@media screen and (min-device-width: 320px) and (max-device-width:639px){
+   @import "mobile.less";
+}
+@media screen and (min-device-width: 640px) {
+    @import "pc.less";
+}

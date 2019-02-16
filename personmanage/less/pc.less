@@ -1,0 +1,84 @@
+@import './config.less';
+.content {
+    .user-index {
+        display: flex;
+        width: 1200px;
+        .index-left {
+            width: 203px;
+            height: 615px;
+            padding: 0.8em 0;
+            @{bg}: url("./../img/checked-banner.jpg") 0 0 no-repeat;
+            @{bgs}: 100% 100%;
+            li {
+                display: flex;
+                height: 3em;
+                padding: 0.4em 1em;
+                a {
+                    flex: 1;
+                    @{bgs}: 100% 100%;
+                    display: flex;
+                    @{ai}: center;
+                    @{jc}: center;
+                }
+            }
+        }
+        .index-right {
+            flex: 1;
+            .user-now {
+                height: 100%;
+                display: flex;
+                @{jc}: center;
+                @{ai}: center;
+                @{bg}: url("./../img/now-bg.png") 0 0 no-repeat;
+                @{bgs}: 100% 100%;
+                a {
+                    @{bdra}: 50%;
+                    border: 1px solid @c-more-orange;
+                    width: 9em;
+                    height: 9em;
+                    display: flex;
+                    margin-left: -10em;
+                    @{ai}: center;
+                    @{jc}: center;
+                    -webkit-transition: all 0.75s ease;
+                       -moz-transition: all 0.75s ease;
+                        -ms-transition: all 0.75s ease;
+                         -o-transition: all 0.75s ease;
+                            transition: all 0.75s ease;
+                    &:hover {
+                        border-color: @c-red;
+                        border-width: 3px;
+                        text-decoration: none;
+                        -webkit-transition: all 0.5s ease;
+                           -moz-transition: all 0.5s ease;
+                            -ms-transition: all 0.5s ease;
+                             -o-transition: all 0.5s ease;
+                                transition: all 0.5s ease;
+                    }
+                }
+            }
+        }
+    }
+}
+.footer-login {
+    width: 513px;
+}
+.header {
+    .info-content {
+        &:hover {
+            cursor: pointer;
+            ul {
+                display: block;
+            }
+        }
+    }
+}
+.router-link-active {
+    @{bg}: url("./../img/checked-item.png") 0 0 no-repeat;
+}
+a {
+    &:hover {
+        text-decoration: underline;
+    }
+    color: @c-purple;
+}

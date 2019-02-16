@@ -1,0 +1,87 @@
+@import './config.less';
+.app {
+    height: 100vh;
+}
+.content {
+    width: 100vw;
+    flex: 1;
+    min-height: auto;
+    a {
+        @{fs}: 1.1rem;
+    }
+    .user-index {
+        display: flex;
+        @{fd}: column-reverse;
+    }
+    .index-left {
+        width: 100vw;
+        display: flex;
+        @{jc}: space-around;
+        margin: 0.3rem 0;
+        padding: 0 1.2rem;
+        li {
+            display: flex;
+            @{ai}: center;
+            @{jc}: center;
+            a {
+                flex: 1;
+                padding: 0.4rem 0.9rem;
+                @{bdra}: 3px;
+            }
+        }
+    }
+    .index-right {
+        flex: 1;
+        @{bgc}: @c-default;
+        display: flex;
+    }
+    .user-now {
+        flex: 1;
+        display: flex;
+        @{jc}: center;
+        @{ai}: center;
+        a {
+            @{bdra}: 50%;
+            display: flex;
+            @{ai}: center;
+            @{jc}: center;
+            width: 4.5em;
+            height: 4.5em;
+            border: 2px solid @c-red;
+            color: #888;
+        }
+    }
+    .login {
+        width: 100vw;
+        flex: 1;
+        height: 103vw;
+    }
+}
+.header {
+    width: 100vw;
+    height: 12.7vw;
+    padding: 0 1rem 0 0;
+    @{ai}: center;
+    em,
+    a {
+        @{fs}: 0.8rem;
+    }
+    .info-content {
+        .show-item {
+            display: block;
+        }
+    }
+}
+.footer {
+    @{fs}: 0.7rem;
+}
+.footer-login {
+    width: 100vw;
+}
+.footer-hide {
+    display: none;
+}
+.router-link-active {
+    @{bgc}: @c-blue;
+    color: #fff;
+}

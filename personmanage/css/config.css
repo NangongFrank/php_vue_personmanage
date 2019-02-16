@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+em {
+  font-style: normal;
+}
+img {
+  border: 0;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+html {
+  font-size: 3.33333333 vw;
+}
+body {
+  background-color: #dff4ff;
+}
+input {
+  border: 0;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+}
+button {
+  border: 0;
+  background-color: #0094e1;
+  padding: 6px 16px;
+  border-radius: 4px;
+  color: #fff;
+}
+a {
+  text-decoration: none;
+}
